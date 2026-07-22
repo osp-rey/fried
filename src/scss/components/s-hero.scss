@@ -1,0 +1,175 @@
+@use "../base/templates" as *;
+@use "../base/media" as *;
+
+.s-hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: 195px;
+  color: white;
+  z-index: 1;
+
+  @include laptop {
+    padding-top: 160px;
+  }
+  @include laptop-min {
+    padding-top: 120px;
+    padding-bottom: 30px;
+  }
+  @include tablet-min {
+    padding-top: 100px;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 185px;
+    background: linear-gradient(0deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0.7;
+    z-index: -1;
+    @include laptop {
+      height: 90px;
+    }
+    @include laptop-min {
+      display: none;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 185px;
+    z-index: -1;
+    @include laptop {
+      bottom: 90px;
+    }
+    @include laptop-min {
+      bottom: 0;
+    }
+
+    .bg-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: var(--dark);
+
+      .img {
+        opacity: 0.1;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  &__slider {
+    overflow: visible !important;
+  }
+  &__slide {
+    box-sizing: border-box;
+    opacity: 0;
+
+    transition: opacity 0.3s ease-in-out;
+
+    &.swiper-slide-active {
+      opacity: 1;
+    }
+  }
+  &__slide-wrap {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 40px;
+
+    @include laptop-middle {
+      gap: 30px;
+    }
+    @include laptop-min {
+      gap: 20px;
+    }
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+  &__slide-info {
+    max-width: 625px;
+    @include tablet {
+      max-width: none;
+      width: 100%;
+    }
+  }
+  &__slide-title {
+  }
+  &__slide-content {
+    margin-top: 50px;
+    @include laptop-min {
+      margin-top: 30px;
+    }
+  }
+  &__slide-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 50px;
+    row-gap: 20px;
+
+    @include laptop-middle {
+      gap: 20px;
+    }
+    @include laptop-min {
+      margin-top: 30px;
+    }
+    @include tablet-min {
+      gap: 15px;
+    }
+
+    .btn-s {
+      @include laptop-middle {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+      @include tablet-min {
+        width: 100%;
+      }
+    }
+  }
+  &__slide-img {
+    display: block;
+    width: 690px;
+
+    @include desktop {
+      width: 640px;
+    }
+    @include laptop {
+      width: 550px;
+    }
+    @include laptop-middle {
+      width: 450px;
+    }
+    @include laptop-min {
+      width: 255px;
+    }
+    @include tablet {
+      width: 400px;
+    }
+  }
+
+  .slider-nav {
+    margin-top: 10px;
+
+    .slider-pagination {
+      .swiper-pagination-bullet {
+        @include laptop-min {
+          --background: white;
+        }
+      }
+    }
+    .slider-arrow {
+      color: white;
+    }
+  }
+}

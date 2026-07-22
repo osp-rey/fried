@@ -1,0 +1,132 @@
+@use "../base/templates" as *;
+@use "../base/media" as *;
+
+.form-control {
+  position: relative;
+  min-height: 80px;
+  width: 100%;
+  @include tablet {
+    min-height: 60px;
+  }
+
+  &._active {
+    .input-label {
+      font-size: 16px;
+      transform: translateY(0);
+      @include tablet {
+        font-size: 14px;
+      }
+    }
+  }
+}
+.input {
+  --color: var(--dark);
+  --border: var(--secondary);
+  --background: transparent;
+  --color-a: var(--dark);
+  --border-a: var(--primary);
+  --background-a: transparent;
+
+  width: 100%;
+  min-height: 55px;
+  border: none;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--border);
+  outline: none;
+  @include tablet {
+    min-height: 40px;
+  }
+
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  &:active {
+    border-color: var(--border-a);
+    background-color: var(--background-a);
+    color: var(--color-a);
+  }
+
+  @include hover {
+    &::placeholder {
+      opacity: 0 !important;
+    }
+  }
+}
+.input-label {
+  display: block;
+  transform: translateY(calc(100%));
+  line-height: 100%;
+  pointer-events: none;
+  width: fit-content;
+  font-size: 18px;
+  line-height: 19px;
+  user-select: none;
+
+  @include tablet {
+    font-size: 16px;
+  }
+
+  transition:
+    transform 0.3s ease,
+    font-size 0.3s ease;
+}
+
+.check-wrapper {
+  input[type="checkbox"] {
+    display: none;
+
+    &:checked + .wpcf7-list-item-label {
+      &::before {
+        background: var(--url) center / 15px auto no-repeat;
+        background-color: var(--background-a);
+        border-color: var(--border-a);
+      }
+    }
+  }
+  .wpcf7-list-item {
+    margin-left: 0;
+  }
+  .wpcf7-list-item-label {
+    --color: rgba(28, 15, 10, 0.5);
+    --color-a: var(--dark);
+    --color-a-h: var(--primary);
+    --border: var(--primary);
+    --background: transparent;
+    --border-a: var(--primary);
+    --background-a: var(--primary);
+    --url: url("@img/check-white.svg");
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+
+    color: var(--color);
+    font-size: 15px;
+    line-height: 130%;
+
+    a {
+      color: var(--color-a);
+      transition: color 0.3s ease;
+      @include hover {
+        color: var(--color-a-h);
+      }
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 25px;
+      height: 25px;
+      flex-shrink: 0;
+      border: 2px solid var(--border);
+      background-color: var(--background);
+
+      transition:
+        border-color 0.3s ease,
+        background-color 0.3s ease;
+    }
+  }
+}

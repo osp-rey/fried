@@ -1,0 +1,103 @@
+@use "../base/templates" as *;
+@use "../base/media" as *;
+
+.slider-nav {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+  margin-top: 30px;
+
+  @include laptop-min {
+    gap: 30px;
+  }
+
+  .slider-pagination {
+    flex: 1;
+  }
+  .slider-toggle {
+    @include tablet {
+      display: none !important;
+    }
+  }
+}
+.slider-pagination {
+  display: flex;
+  gap: 10px;
+
+  .swiper-pagination-bullet {
+    --background: rgba(28, 15, 10, 0.2);
+    --background-a: var(--primary);
+
+    height: 1px !important;
+    width: auto;
+    flex: 1;
+    background-color: var(--background);
+    opacity: 1 !important;
+    margin: 0 !important;
+
+    transition: background-color 0.3s ease;
+
+    &.swiper-pagination-bullet-active {
+      background-color: var(--background-a);
+    }
+  }
+}
+.slider-toggle {
+  display: flex;
+  flex-shrink: 0;
+  @include laptop-min {
+    gap: 15px;
+  }
+}
+.slider-arrow {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  flex: 0 0 65px;
+  height: 35px;
+  flex-shrink: 0;
+  color: var(--dark);
+
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease,
+    flex 0.3s ease;
+
+  &.swiper-button-disabled {
+    opacity: 0.5;
+    flex-basis: 35px;
+  }
+  &.swiper-button-lock {
+    display: none !important;
+  }
+
+  &._next {
+    justify-content: flex-end;
+  }
+
+  @include laptop-min {
+    flex-basis: 50px !important;
+  }
+
+  svg {
+    width: 65px;
+    flex-shrink: 0;
+    height: 12px;
+  }
+}
+.slider-num {
+  width: 100px;
+  flex-shrink: 0;
+
+  user-select: none;
+  text-align: center;
+  font-weight: 300;
+  font-size: 28px;
+  text-align: center;
+  color: rgba(28, 15, 10, 0.5);
+
+  @include laptop-min {
+    display: none;
+  }
+}

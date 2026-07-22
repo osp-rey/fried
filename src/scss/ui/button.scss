@@ -1,0 +1,97 @@
+@use "../base/templates" as *;
+@use "../base/media" as *;
+
+.btn-s {
+  --background: var(--primary);
+  --background-h: var(--primary-h);
+  --border: var(--primary);
+  --border-h: var(--primary-h);
+  --color: white;
+  --color-h: white;
+
+  @include flex-center;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background-color: var(--background);
+  border-radius: 0 0 30px 0;
+  padding: 27px 56px;
+  outline: none;
+  width: fit-content;
+  overflow: hidden;
+
+  color: var(--color);
+  user-select: none;
+  text-align: center;
+  z-index: 1;
+
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  @include laptop-min {
+    padding: 20px 35px;
+    border-radius: 0 0 20px 0;
+  }
+  @include hover {
+    color: var(--color-h);
+    border-color: var(--border-h);
+  }
+  @include pressed {
+    color: var(--color-h);
+    background-color: var(--border-h);
+    border-color: var(--background-h);
+  }
+
+  &._swipe {
+    @include hover {
+      &::before {
+        transform: translateX(0px);
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      background-color: var(--background-h);
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      transform: translateX(-100%);
+      z-index: -1;
+
+      transition: transform .3s ease-in-out;
+    }
+  }
+  &._circle {
+    @include hover {
+      span {
+        width: 1000px;
+        height: 1000px;
+      }
+    }
+    span {
+      position: absolute;
+      display: block;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background-color: var(--background-h);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition:
+        width 0.4s ease-in-out,
+        height 0.4s ease-in-out;
+      z-index: -1;
+    }
+  }
+
+  &._secondary {
+    --background: var(--secondary);
+    --background-h: var(--secondary-h);
+    --border: var(--secondary);
+    --border-h: var(--secondary-h);
+  }
+}
