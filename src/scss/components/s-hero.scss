@@ -169,7 +169,9 @@
       }
     }
     .slider-arrow {
-      color: white;
+      @include laptop-min {
+        color: white;
+      }
     }
   }
 }

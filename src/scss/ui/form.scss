@@ -9,6 +9,13 @@
     min-height: 60px;
   }
 
+  &._white {
+    .input {
+      --color: white;
+      --color-a: white;
+    }
+  }
+
   &._active {
     .input-label {
       font-size: 16px;
@@ -16,6 +23,11 @@
       @include tablet {
         font-size: 14px;
       }
+    }
+    .input {
+      border-color: var(--border-a);
+      color: var(--color-a);
+      background-color: var(--background-a);
     }
   }
 }
@@ -32,6 +44,7 @@
   border: none;
   background-color: var(--background);
   border-bottom: 1px solid var(--border);
+  color: var(--color);
   outline: none;
   @include tablet {
     min-height: 40px;
@@ -74,6 +87,13 @@
 }
 
 .check-wrapper {
+  &._white {
+    .wpcf7-list-item-label {
+      --color: rgba(255, 255, 255, 0.5);
+      --color-a: white;
+    }
+  }
+
   input[type="checkbox"] {
     display: none;
 

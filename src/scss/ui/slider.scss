@@ -28,6 +28,7 @@
     --background: rgba(28, 15, 10, 0.2);
     --background-a: var(--primary);
 
+    position: relative;
     height: 1px !important;
     width: auto;
     flex: 1;
@@ -36,6 +37,13 @@
     margin: 0 !important;
 
     transition: background-color 0.3s ease;
+
+    &::before {
+      position: absolute;
+      content: "";
+      inset: -3px 0px;
+      z-index: 1;
+    }
 
     &.swiper-pagination-bullet-active {
       background-color: var(--background-a);

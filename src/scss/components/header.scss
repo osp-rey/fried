@@ -8,6 +8,28 @@
   top: 0;
   color: white;
   z-index: 100;
+
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
+
+  &._scroll {
+    background-color: var(--dark);
+
+    .header__logo {
+      width: 205px;
+      @media (max-width: 1760px) {
+        width: 190px;
+      }
+      @include laptop-middle {
+        width: 170px;
+      }
+    }
+    .header__content {
+      border-color: transparent;
+    }
+  }
+
   &__wrap {
     padding-left: 50px;
     display: flex;
@@ -28,7 +50,10 @@
   }
   &__logo {
     display: block;
+    align-self: center;
     width: 265px;
+
+    transition: width 0.3s ease;
 
     @media (max-width: 1760px) {
       width: 220px;
@@ -37,10 +62,10 @@
       width: 200px;
     }
     @include tablet {
-      width: 160px;
+      width: 160px !important;
     }
     @include tablet-min {
-      width: 140px;
+      width: 140px !important;
     }
 
     img {
@@ -54,6 +79,8 @@
     flex: 1;
     padding-bottom: 20px;
     border-bottom: 1px solid white;
+
+    transition: border-color 0.3s ease;
 
     @include laptop-min {
       position: absolute;
@@ -143,7 +170,7 @@
     width: 50px;
     height: 50px;
     cursor: pointer;
-    transition: color .3s ease;
+    transition: color 0.3s ease;
 
     @include hover {
       color: var(--primary);

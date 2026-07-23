@@ -1,0 +1,39 @@
+@use "../base/templates" as *;
+@use "../base/media" as *;
+.circle-rotate {
+  @include flex-center;
+  width: 220px;
+  height: 220px;
+  position: relative;
+
+  @include laptop {
+    width: 150px;
+    height: 150px;
+  }
+}
+.circle-rotate-text {
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  animation: rotate 10s linear infinite;
+}
+.circle-rotate-icon {
+  display: block;
+  pointer-events: none;
+  width: 105px;
+  @include laptop {
+    width: 75px;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

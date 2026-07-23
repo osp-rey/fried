@@ -1,0 +1,59 @@
+@use '../base/templates' as *;
+@use '../base/media' as *;
+
+.s-catalog {
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    row-gap: 20px;
+
+    @include tablet {
+      width: 100%;
+      gap: 20px;
+      row-gap: 15px;
+    }
+
+    .btn-s {
+      @include tablet-min {
+        width: 100%;
+      }
+    }
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    row-gap: 30px;
+
+    @include laptop-middle {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      row-gap: 20px;
+    }
+    @include tablet-min {
+      gap: 10px;
+    }
+
+    [data-more-item] {
+      &:nth-child(-n + 12) {
+        display: block !important;
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+      }
+    }
+  }
+  &__btn-more {
+    margin: 40px auto 0px auto;
+
+    @include laptop-min {
+      margin-top: 30px;
+    }
+    @include tablet-min {
+      width: 100%;
+    }
+  }
+}

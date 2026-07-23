@@ -2,7 +2,7 @@
   <div class="modal" id="modal-brone">
     <div data-fancybox-close class="modal__close">
       <svg>
-        <use xlink:href='img/icons/icons.svg#icon-close'></use>
+        <use xlink:href="img/icons/icons.svg#icon-close"></use>
       </svg>
     </div>
     <div class="modal__body">
@@ -14,8 +14,8 @@
       </p>
       <form action="#" class="modal__form">
         <div class="form-grid">
-          <div style="display: none;">
-            <input type="text" class="input-note">
+          <div style="display: none">
+            <input type="text" class="input-note" />
           </div>
           <div class="form-control">
             <span class="input-label">Ваше имя</span>
@@ -56,6 +56,46 @@
           <button class="btn-s">Забронировать</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <div class="modal-product">
+    <div class="modal-product__inside">
+      <div class="modal-product__overlay"></div>
+      <div class="modal-product__window">
+        <div class="container">
+          <div class="modal-product__window-body">
+            <div class="modal-product__close">
+              <svg>
+                <use xlink:href="img/icons/icons.svg#icon-close"></use>
+              </svg>
+            </div>
+            <div class="modal-product__wrap">
+              <div class="modal-product__gallery"></div>
+              <div class="modal-product__info">
+                <div class="modal-product__title"></div>
+                <div class="modal-product__price"></div>
+                <div class="content-box modal-product__content"></div>
+                <div class="modal-product__block">
+                  <div
+                    class="modal-product__items _col modal-product__weight"
+                  ></div>
+                  <div class="modal-product__block-main">
+                    <div class="modal-product__block-main-title">
+                      Пищевая ценность
+                      <br />
+                      в 100г продукта
+                    </div>
+                    <div
+                      class="modal-product__items modal-product__value"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </aside>

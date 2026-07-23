@@ -1,0 +1,99 @@
+@use "../base/templates" as *;
+@use "../base/media" as *;
+
+.sect-nav {
+  position: relative;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--secondary);
+  @include laptop-min {
+    margin-bottom: 30px;
+  }
+
+  &._start {
+    &::before {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  &._end {
+    &::after {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .swiper-slide {
+    box-sizing: border-box;
+    width: fit-content !important;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+    top: 0;
+    bottom: 3px;
+    width: 80px;
+    z-index: 10;
+
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+
+    @include laptop-min {
+      width: 70px;
+    }
+    @include tablet {
+      width: 60px;
+    }
+  }
+
+  &::before {
+    left: 0;
+    transform: rotate(180deg);
+  }
+  &::after {
+    right: 0;
+  }
+}
+.sect-nav-btn {
+  cursor: pointer;
+
+  font-family: "Wadik", sans-serif;
+  user-select: none;
+  font-weight: 700;
+  font-size: 20px;
+  white-space: nowrap;
+  padding-bottom: 20px;
+
+  transition: color 0.3s ease;
+
+  @include laptop-min {
+    font-size: 18px;
+  }
+  @include tablet {
+    font-size: 16px;
+  }
+  @include hover {
+    color: var(--primary);
+  }
+
+  &._active {
+    pointer-events: none;
+    &::after {
+      right: 0;
+    }
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 100%;
+    bottom: -1px;
+    height: 3px;
+    background-color: var(--primary);
+
+    transition: right .3s ease;
+  }
+}
