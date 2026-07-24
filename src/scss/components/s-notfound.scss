@@ -1,0 +1,35 @@
+@use "../base/templates" as *;
+@use "../base/media" as *;
+
+.s-notfound {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-top: 195px;
+
+  @include laptop {
+    padding-top: 160px;
+  }
+  @include laptop-min {
+    padding-top: 120px;
+  }
+  @include tablet-min {
+    padding-top: 100px;
+  }
+  font-family: "Wadik";
+  flex: 1;
+  &__num {
+    font-size: 140px;
+    @include tablet {
+      font-size: 120px;
+    }
+  }
+  &__descr {
+    margin: 20px 0;
+  }
+  &__btn {
+    width: 300px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
